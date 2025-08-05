@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Debouncing</title>
+    </head>
+    <body>
+        <input id="input-field"/>
+        <script>
+            const input_field = document.querySelector("#input-field");
+            
+            function getData(){
+                console.log('data fetching...');
+            }
+            
+            const procesingInput = debouncing(getData, 400);
+            input_field.addEventListener('keydown', procesingInput);
+
+            function debouncing(func, wait){
+                let timeout;
+                return function executedFunction(){
+                    const letter = function() {
+                        clearTimeout(timeout);
+                        func();
+                    }
+
+                    clearTimeout(timeout);
+                    timeout = setTimeout(letter, wait);
+                }
+            }
+
+        </script>
+    </body>
+</html>
