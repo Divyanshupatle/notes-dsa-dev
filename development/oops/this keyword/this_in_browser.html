@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>this In Browser</title>
+    </head>
+    <body>
+
+        <script>
+            // console.log(this); // window obj
+
+            // function test(){
+            //     console.log(this); // window obj
+            // }
+
+            // test();
+
+            // let obj ={
+            //     name : 'adam',
+            //     fn : function() {
+            //         console.log(this);
+            //     }
+            // }
+
+            // obj.fn(); // obj itself
+
+            //------------------------------nested function------------------
+
+            // let obj1 = {
+            //     name : 'jhon',
+            //     fn : function(){
+            //         function fn2(){
+            //             console.log(this);
+            //         }
+
+            //         fn2();
+            //     }
+            // }
+
+            // obj1.fn(); // window obj
+
+            //============================ use strict ====================================
+                "use strict"
+
+            // console.log(this); // window obj
+
+            // function test(){
+            //     console.log(this); // undefined
+            // }
+
+            // test();
+
+            // let obj ={
+            //     name : 'adam',
+            //     fn : function() {
+            //         console.log(this);
+            //     }
+            // }
+
+            // obj.fn(); // obj itself
+
+            //------------------------------nested function------------------
+
+            // let obj1 = {
+            //     name : 'jhon',
+            //     fn : function(){
+            //         function fn2(){
+            //             console.log(this); // undefined
+            //         }
+
+            //         fn2();
+            //     }
+            // }
+
+            // obj1.fn(); 
+        </script>
+    </body>
+</html>

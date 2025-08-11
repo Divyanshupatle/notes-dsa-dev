@@ -1,4 +1,4 @@
-class recursion {
+class Recursion_1 {
 
     // printing even numbers from 2 to N using recursion
     // private static void print2toN(int n){
