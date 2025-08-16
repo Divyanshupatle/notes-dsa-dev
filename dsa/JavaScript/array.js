@@ -119,33 +119,174 @@
 // console.log(slidingWindow(arr, k));
 
 //--------------------------------- Variable-Size Sliding Window ---------------------------
-// naive approach
-function smallestSubArray(arr, k){
-    let n = arr.length;
-    let size = n;
-    let sizeFlag = true;
+// // naive approach
+// function smallestSubArray(arr, k){
+//     let n = arr.length;
+//     let size = n;
+//     let sizeFlag = true;
 
-    for(let s=0; s<n; s++){
-        for(let e=s; e<n; e++){
-            let sum = 0;
-            for(let p=s; p<=e; p++){
-                sum += arr[p];
+//     for(let s=0; s<n; s++){
+//         for(let e=s; e<n; e++){
+//             let sum = 0;
+//             for(let p=s; p<=e; p++){
+//                 sum += arr[p];
 
-                if(sum >= k && e-p+1 < size){
-                    sizeFlag = false;
-                    size = (e-p+1);
-                }
-            }
-        }
-    }
+//                 if(sum >= k && e-p+1 < size){
+//                     sizeFlag = false;
+//                     size = (e-p+1);
+//                 }
+//             }
+//         }
+//     }
 
-    if(sizeFlag){
-        return 0;
-    }
+//     if(sizeFlag){
+//         return 0;
+//     }
 
-    return size;
-}
+//     return size;
+// }
 
-const arr = [2, 1, 5, 2, 3, 2]
-const s = 2
-console.log(smallestSubArray(arr, s));
+// const arr = [2, 1, 5, 2, 3, 2]
+// const s = 2
+// console.log(smallestSubArray(arr, s));
+
+
+//------------------------------- subarray intution building------------------------------
+
+// function slidingWindow(arr, size){
+//     let i=0;
+//     let j=size-1;
+
+//     while(j < arr.length){
+//         process.stdout.write(`[`)
+//         for(let k=i; k<=j; k++){
+//             process.stdout.write(arr[k].toString() +" ")
+//         }
+//         process.stdout.write(`]`)
+//         i++;
+//         j++;
+//     }
+//     console.log();
+// }
+// function subArrayPrinting(arr){
+//     for(let i=1; i<=arr.length; i++){
+//         slidingWindow(arr, i);
+//     }
+// }
+
+// const arr = [1,2,3,4]
+// subArrayPrinting(arr);
+
+
+// function subArrayPrinting(arr){
+//     const n = arr.length;
+
+//     for(let s=0; s<n; s++){
+//         for(let e=s; e<n; e++){
+//             for(let k=0; k<=e; k++){
+//                 process.stdout.write(arr[k].toString() +" ");
+//             }
+//             console.log();
+//         }
+//     }
+// }
+// const arr = [1,2,3,4]
+// subArrayPrinting(arr);
+
+//-------------------------- smallest subArray sum >= target -------------------------------
+
+// // naive approach O(n^3)
+// function smallestSubArraySum(arr, t){
+//     const n = arr.length;
+//     let leastSubArraySize = n+1;
+
+//     for(let s=0; s<n; s++){
+//         for(let e=s; e<n; e++){
+//             let sum = 0
+//             for(let k=s; k<=e; k++){
+//                 sum += arr[k];
+//                 if(sum >= t && (k-s+1) < leastSubArraySize ){
+//                     leastSubArraySize = (k-s+1);
+//                 }
+//             }
+
+            // if(sum >= t && (e-s+1) < leastSubArraySize ){ // it also work
+            //     leastSubArraySize = (e-s+1);
+            // }
+//         }
+//     }
+
+//     return leastSubArraySize
+// }
+
+// // better approach O(n^2)
+// function smallestSubArraySum(arr, t){
+//     const n = arr.length;
+//     let leastSubArraySize = n+1;
+
+//     for(let s=0; s<n; s++){
+//         let sum = 0
+//         for(let e=s; e<n; e++){
+//             sum += arr[e];
+//             if(sum >= t && (e-s+1) < leastSubArraySize ){
+//                 leastSubArraySize = (e-s+1);
+//             }
+//         }
+//     }
+
+//     return leastSubArraySize
+// }
+
+// const arr = [2, 1, 5, 2, 3, 2], target = 11
+// console.log(smallestSubArraySum(arr, target));
+
+// // optimal approach O(n) sliding window
+// function smallestSubArraySum(arr, t){
+//     const n = arr.length;
+//     let minArrSize = n+1;
+
+//     let i=0;
+//     let j=0;
+//     let sum = 0;
+//     while(j < n){
+//         if(sum < t){
+//             sum += arr[j++];
+//         }
+//         else{
+//             sum -= arr[i++];
+//         }
+
+//         if(sum >= t && j-i < minArrSize) minArrSize = j-i;
+//     }
+//     return minArrSize;
+// }
+// const arr = [2, 1, 5, 2, 3, 2], target = 11
+// console.log(smallestSubArraySum(arr, target));
+
+//------------------------ cleaner version -----------------------------------------------
+
+// // cleaner version
+// function smallestSubArraySum(arr, target) {
+//     let n = arr.length;
+//     let minLen = n + 1;
+//     let sum = 0;
+//     let start = 0;
+
+//     for (let end = 0; end < n; end++) {
+//         sum += arr[end];
+
+//         // shrink the window while sum >= target
+//         while (sum >= target) {
+//             minLen = Math.min(minLen, end - start + 1);
+//             sum -= arr[start];
+//             start++;
+//         }
+//     }
+
+//     return minLen === n + 1 ? 0 : minLen;
+// }
+
+// const arr = [2, 1, 5, 2, 3, 2];
+// const target = 7;
+// console.log(smallestSubArraySum(arr, target)); // 2
+
