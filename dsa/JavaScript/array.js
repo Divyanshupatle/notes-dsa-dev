@@ -290,3 +290,19 @@
 // const target = 7;
 // console.log(smallestSubArraySum(arr, target)); // 2
 
+// let userName = prompt("Enter your name"); // in browser
+// console.log(userName);
+
+// const arr = new Array(5)
+
+// for(let i=0; i<arr.length; i++){
+//     console.log(arr[i])
+// }
+
+// const fs = require('fs');
+// read, write, append, delete, update, rename
+
+// fs.writeFileSync('f1.txt', "first file created");
+// fs.appendFileSync('f1.txt', " hello \n monu");
+// fs.unlinkSync('f1.txt');
+
