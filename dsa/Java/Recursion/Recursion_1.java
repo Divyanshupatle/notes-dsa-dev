@@ -1,11 +1,11 @@
 class Recursion_1 {
 
     // printing even numbers from 2 to N using recursion
-    // private static void print2toN(int n){
-    //     if(n == 0) return ;
-    //     print2toN(n-2);
-    //     System.out.println(n);
-    // }
+    private static void print2toN(int n){
+        if(n == 0) return ;
+        print2toN(n-2);
+        System.out.println(n);
+    }
 
     // private static int functionalSumN(int n){
     //     if(n==0) return 0;
@@ -84,16 +84,16 @@ class Recursion_1 {
         // }
 
 
-        private static void reverse(char[] arr, int l, int r){
-                if (l > r) return;
+        // private static void reverse(char[] arr, int l, int r){
+        //         if (l > r) return;
 
-                // swap
-                char temp = arr[l];
-                arr[l] = arr[r];
-                arr[r] = temp;
+        //         // swap
+        //         char temp = arr[l];
+        //         arr[l] = arr[r];
+        //         arr[r] = temp;
 
-                reverse(arr, l+1, r-1);
-        }
+        //         reverse(arr, l+1, r-1);
+        // }
 
 
 
@@ -101,7 +101,7 @@ class Recursion_1 {
 
     public static void main(String[] args){
         System.out.println("running");
-        // print2toN(30);
+        print2toN(30);
         // int sum = functionalSumN(5);
         // System.out.println(sum);
 
@@ -127,12 +127,12 @@ class Recursion_1 {
         
         // ParameterizedStrReverse(str, "");
 
-        char[] ch = {'m', 'o', 'n', 'a'};
-        reverse(ch, 0, ch.length-1);
+        // char[] ch = {'m', 'o', 'n', 'a'};
+        // reverse(ch, 0, ch.length-1);
 
-        for(int i=0; i<ch.length; i++){
-            System.out.print(ch[i] +" ");
-        }
+        // for(int i=0; i<ch.length; i++){
+        //     System.out.print(ch[i] +" ");
+        // }
 
     }
 }
