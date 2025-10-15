@@ -13,20 +13,20 @@
             function getData(){
                 console.log('data fetching...');
             }
+
+            const handleThrotling = debouncing(getData, 400);
+
+            input_field.addEventListener("keydown", handleThrotling);
             
-            const procesingInput = debouncing(getData, 400);
-            input_field.addEventListener('keydown', procesingInput);
-
-            function debouncing(func, wait){
+            function debouncing(func, delay){
                 let timeout;
-                return function executedFunction(){
-                    const letter = function() {
-                        clearTimeout(timeout);
-                        func();
-                    }
 
+                return function executed(){
                     clearTimeout(timeout);
-                    timeout = setTimeout(letter, wait);
+                    timeout = setTimeout(() => {
+                        func();
+                        clearTimeout(timeout);
+                    }, delay);
                 }
             }
 

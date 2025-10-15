@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head><head>
+    <body>
+        <div id="root"></div>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script>
+            // const root = document.getElementById('root');
+            // let p = document.createElement('p');
+            // p.textContent = 'hello world';
+            // root.appendChild(p);
+            
+            const root = document.getElementById('root');
+            const h1 = React.createElement('h1', {style:{color:"red"}}, 'Hello World from react');
+
+            ReactDOM.render(h1, root);
+
+        </script>
+    </body>
+</html>

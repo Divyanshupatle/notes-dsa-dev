@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Q1</title>
+    <style>
+      .balls {
+        margin-top: 4rem;
+        display: flex;
+        justify-content: space-evenly;
+      }
+      .ball {
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        border: none;
+        background-color: red;
+      }
+    </style>
+</head>
+
+<body>
+    Q1.1 Fix the mathematical problem using JS <br>
+    Q1.2 Make all the balls blue
+    <p>2 + 2 = 22</p>
+
+    <div class="balls">
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+    </div>
+
+    <script>
+        const selectDiv = document.querySelector('p');
+        selectDiv.textContent = '2 + 2 = 4';
+        
+        // const selectBalls = document.querySelectorAll(".ball");
+        const selectBalls = document.getElementsByClassName("ball");
+
+        for(let i=0; i<selectBalls.length; i++){
+            selectBalls[i].style.backgroundColor = "blue";
+        }
+        console.log(selectBalls);
+    </script>
+</body>
+
+</html>
